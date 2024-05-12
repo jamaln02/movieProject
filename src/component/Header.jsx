@@ -145,6 +145,12 @@ export function Header() {
           <Button variant="gradient" size="sm" fullWidth>
             Log In
           </Button>
+          <div
+            className="p-2 cursor-pointer text-2xl "
+            onClick={brTheme ? setLightTheme : setDarkTheme}
+          >
+            {brTheme ? <FiSun /> : <FaRegMoon />}
+          </div>
         </div>
       </Collapse>
     </Navbar>
