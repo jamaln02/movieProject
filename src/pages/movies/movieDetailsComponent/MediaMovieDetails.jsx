@@ -10,11 +10,12 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 
 const MediaMovieDetails = () => {
-  const { movieid } = useParams();
+  const { movieid, moviename } = useParams();
   const [activeTab, setActiveTab] = useState("videos");
   const [videos, setVideos] = useState(null);
   const [backDrops, setBackDrops] = useState(null);
   const [posters, setPosters] = useState(null);
+  console.log(videos);
   const getVideos = () => {
     axios({
       method: "GET",
@@ -105,29 +106,28 @@ const MediaMovieDetails = () => {
                 }
               >
                 {value == "videos" ? (
-                  videos?.map((ele, ind) => (
-                    <iframe
-                      key={ind}
-                      width="560"
-                      height="315"
-                      src={`https://www.youtube.com/embed/${ele.key}`}
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                      className="vid "
-                    ></iframe>
-                  ))
+                  videos
+                    ?.filter((element, ind) => ind < 15)
+                    ?.map((ele, ind) => (
+                      <iframe
+                        key={ind}
+                        width="560"
+                        height="315"
+                        src={`https://www.youtube.com/embed/${ele.key}`}
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                        className="vid "
+                      ></iframe>
+                    ))
                 ) : value == "backdrops" ? (
                   <div className="flex overflow-x-scroll">
                     {backDrops
                       ?.filter((ele, ind) => ind < 6)
                       ?.map((contant, ind) => (
-                        <div
-                          key={ind}
-                          className="bg-blue-gray-300 text-white mx-1 "
-                        >
+                        <div key={ind} className="bg-gray-700 text-white mx-1 ">
                           <div>
                             <img
                               src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${contant.file_path}`}
@@ -137,8 +137,10 @@ const MediaMovieDetails = () => {
                           </div>
                         </div>
                       ))}
-                    <div className=" bg-blue-gray-300 text-white mx-1  text-center content-center p-16">
-                      <Link>
+                    <div className=" bg-gray-700 text-white mx-1  text-center content-center p-16">
+                      <Link
+                        to={`/movie/${movieid}/title/${moviename}/images/backdrops`}
+                      >
                         show more{" "}
                         <svg
                           stroke="currentColor"
@@ -166,7 +168,7 @@ const MediaMovieDetails = () => {
                         ?.map((contant, ind) => (
                           <div
                             key={ind}
-                            className="bg-blue-gray-300 text-white mx-1 "
+                            className="bg-gray-700 text-white mx-1 "
                           >
                             <div>
                               <img
@@ -177,8 +179,10 @@ const MediaMovieDetails = () => {
                             </div>
                           </div>
                         ))}
-                      <div className=" bg-blue-gray-300 text-white mx-1  text-center content-center p-16">
-                        <Link>
+                      <div className=" bg-gray-700 text-white mx-1  text-center content-center p-16">
+                        <Link
+                          to={`/movie/${movieid}/title/${moviename}/images/posters`}
+                        >
                           show more{" "}
                           <svg
                             stroke="currentColor"

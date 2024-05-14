@@ -3,16 +3,18 @@ import { Tabs, TabsHeader, TabsBody } from "@material-tailwind/react";
 import ReactShowMoreText from "react-show-more-text";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovieReviews } from "../../../redux-system/redux-slices/moviesSlice/movieReviewsSlice";
 
-const SocialMovieDetails = () => {
-  const { movieid, moviename } = useParams();
+import { getSeriesReviews } from "../../../redux-system/redux-slices/seriesSlice/seriesReviewsSlice";
 
-  const { movieReviewsData } = useSelector((state) => state.movieReview);
+const SocialSeriesDetails = () => {
+  const { seriesid, seriesname } = useParams();
+
+  const { seriesReviewsData } = useSelector((state) => state.seriesReview);
+  console.log(seriesReviewsData);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getMovieReviews(movieid));
-  }, [movieid]);
+    dispatch(getSeriesReviews(seriesid));
+  }, [seriesid]);
   return (
     <div className="px-10">
       <div className="text-2xl font-medium text-light-blue-500">Social</div>
@@ -25,19 +27,19 @@ const SocialMovieDetails = () => {
                 "bg-transparent border-b-2 border-gray-900 shadow-none rounded-none",
             }}
           >
-            Reviews ({movieReviewsData?.length}){" "}
+            Reviews ({seriesReviewsData?.length}){" "}
           </TabsHeader>
-          {movieReviewsData?.length == 0 && (
+          {seriesReviewsData?.length == 0 && (
             <TabsBody className=" bg-gray-700 rounded-xl">
               <div className="text-white text-lg space-x-1 px-8 py-4">
                 We don't have any reviews for{" "}
                 <span className="text-light-blue-500 font-bold">
-                  {moviename}
+                  {seriesname}
                 </span>
               </div>
             </TabsBody>
           )}
-          {movieReviewsData
+          {seriesReviewsData
             ?.filter((ele, ind) => ind < 1)
             .map((ele, ind) => (
               <TabsBody
@@ -89,9 +91,9 @@ const SocialMovieDetails = () => {
             ))}
         </Tabs>
       </div>
-      {movieReviewsData?.length > 0 && (
+      {seriesReviewsData?.length > 0 && (
         <div className="text-light-blue-500 m-2 font-medium ">
-          <Link to={`/movie/${movieid}/title/${moviename}}/reviews`}>
+          <Link to={`/tv/${seriesid}/name/${seriesname}}/reviews`}>
             Read All Reviews
           </Link>
         </div>
@@ -100,4 +102,4 @@ const SocialMovieDetails = () => {
   );
 };
 
-export default SocialMovieDetails;
+export default SocialSeriesDetails;

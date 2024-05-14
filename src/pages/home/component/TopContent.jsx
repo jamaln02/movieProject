@@ -45,12 +45,12 @@ const TopContent = ({ data, name }) => {
               </Typography>
               <div className="flex justify-between items-center">
                 {" "}
-                <>
+                <div>
                   Rate:{" "}
-                  <span className="text-blue-700 font-semibold text-lg">
+                  <span className="text-blue-700 font-semibold text-lg mx-1">
                     {ele.vote_average}
                   </span>
-                </>{" "}
+                </div>{" "}
                 <StarRatings
                   className="flex"
                   rating={ele.vote_average / 1.7}

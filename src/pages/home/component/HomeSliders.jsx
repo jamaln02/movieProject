@@ -46,7 +46,7 @@ const HomeSliders = ({ data, name }) => {
       <div className="uppercase font-semibold md:mx-16 text-2xl text-light-blue-500 text-center md:text-start">
         {name}
       </div>
-      <div className="mx-24 py-10">
+      <div className="mx-14 py-10">
         <Slider {...settings}>
           {data.map((content, index) => (
             <div key={index}>
@@ -61,11 +61,15 @@ const HomeSliders = ({ data, name }) => {
                   <img
                     src={`https://media.themoviedb.org/t/p/w220_and_h330_face${content.backdrop_path}`}
                     alt="logo"
+                    width={330}
+                    className="p-2"
                   />
                 ) : (
                   <img
                     src={`https://media.themoviedb.org/t/p/w220_and_h330_face${content.poster_path}`}
                     alt="logo"
+                    width={330}
+                    className="p-2"
                   />
                 )}
               </Link>

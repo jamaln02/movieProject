@@ -70,7 +70,7 @@ function NavList() {
 export function Header() {
   const [openNav, setOpenNav] = useState(false);
 
-  const [brTheme, setBrTheme] = useState(false);
+  const [brTheme, setBrTheme] = useState(true);
   console.log(brTheme);
 
   function setDarkTheme() {
@@ -145,11 +145,12 @@ export function Header() {
           <Button variant="gradient" size="sm" fullWidth>
             Log In
           </Button>
-          <div
-            className="p-2 cursor-pointer text-2xl "
-            onClick={brTheme ? setLightTheme : setDarkTheme}
-          >
-            {brTheme ? <FiSun /> : <FaRegMoon />}
+          <div className="p-2 cursor-pointer text-2xl ">
+            {brTheme ? (
+              <FiSun onClick={setLightTheme} />
+            ) : (
+              <FaRegMoon onClick={setDarkTheme} />
+            )}
           </div>
         </div>
       </Collapse>

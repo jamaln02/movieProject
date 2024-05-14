@@ -76,7 +76,7 @@ const AllPersonsDetails = () => {
             {cast?.map((ele, ind) => (
               <div
                 key={ind}
-                className="flex items-center w-2/3 md:w-2/5  lg:justify-normal lg:w-3/12 bg-blue-gray-300  gap-4 lg:gap-1 rounded-md"
+                className="flex items-center w-2/3 md:w-2/5  lg:justify-normal lg:w-3/12 bg-gray-700  gap-4 lg:gap-1 rounded-md"
               >
                 {ele.profile_path ? (
                   <Link to={`/person/${ele.id}/name/${ele.name}`}>
@@ -116,16 +116,21 @@ const AllPersonsDetails = () => {
           </h1>
           {crewCategories.map((category, ind) => (
             <div key={ind}>
-              <h1 className="text-2xl text-gray-700 dark:text-gray-300 font-semibold p-3">
-                {category}
-              </h1>
+              {category ? (
+                <h1 className="text-2xl text-gray-700 dark:text-gray-300 font-semibold p-3">
+                  {category}
+                </h1>
+              ) : (
+                ""
+              )}
+
               <div className="flex flex-wrap justify-evenly items-center gap-4">
                 {crew
                   ?.filter((ele) => ele?.known_for_department === category)
                   ?.map((contatnt) => (
                     <div
                       key={contatnt.credit_id}
-                      className="flex items-center w-2/3 md:w-2/5  lg:justify-normal lg:w-3/12 bg-blue-gray-300 gap-4 lg:gap-1 rounded-md"
+                      className="flex items-center w-2/3 md:w-2/5  lg:justify-normal lg:w-3/12 bg-gray-700 gap-4 lg:gap-1 rounded-md"
                     >
                       {contatnt.profile_path ? (
                         <Link
@@ -159,6 +164,7 @@ const AllPersonsDetails = () => {
                             {contatnt?.name}
                           </Link>
                         </h1>
+
                         <p className="text-gray-300 text-center">
                           {contatnt?.character}
                         </p>

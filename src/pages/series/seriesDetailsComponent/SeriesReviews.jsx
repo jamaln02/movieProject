@@ -2,39 +2,41 @@ import React, { useEffect } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { getMovieDetails } from "../../../redux-system/redux-slices/moviesSlice/movieDetailsSlice";
-import { getMovieReviews } from "../../../redux-system/redux-slices/moviesSlice/movieReviewsSlice";
 import { Tabs, TabsBody, TabsHeader } from "@material-tailwind/react";
 import ReactShowMoreText from "react-show-more-text";
 import { FaStar } from "react-icons/fa";
+import { getSeriesDetails } from "../../../redux-system/redux-slices/seriesSlice/seriesDetailsSlice";
+import { getSeriesReviews } from "../../../redux-system/redux-slices/seriesSlice/seriesReviewsSlice";
 
-const MovieReviews = () => {
-  const { movieid } = useParams();
-  const { movieDetailsdata } = useSelector((state) => state.moviesDetails);
-  const { movieReviewsData } = useSelector((state) => state.movieReview);
+const SeriesReviews = () => {
+  const { seriesid, seriesname } = useParams();
+  const { seriesDetailsdata } = useSelector((state) => state.seriesDetail);
+
+  const { seriesReviewsData } = useSelector((state) => state.seriesReview);
+
   const navigate = useNavigate();
-  console.log(movieReviewsData);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMovieDetails(movieid));
-    dispatch(getMovieReviews(movieid));
-  }, [movieid]);
+    dispatch(getSeriesDetails(seriesid));
+    dispatch(getSeriesReviews(seriesid));
+  }, [seriesid]);
   return (
-    <div className="mt-20 container mx-auto">
-      <div className="flex p-5 items-center gap-4">
+    <div className="mt-20 container mx-auto ">
+      <div className="flex p-5 items-center gap-4 ">
         <div className="w-20">
           <img
-            src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${movieDetailsdata?.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${seriesDetailsdata?.poster_path}`}
             alt="movie poster"
             className="rounded-lg"
           />
         </div>
         <div>
           <h1 className="text-gray-700 text-2xl font-bold dark:text-gray-100">
-            {movieDetailsdata?.title}{" "}
+            {seriesDetailsdata?.name}{" "}
             <span className="text-gray-400 text-xl">
-              ({movieDetailsdata?.release_date.split("-")[0]})
+              ({seriesDetailsdata?.first_air_date?.split("-")[0]})
             </span>
           </h1>
           <Link
@@ -47,7 +49,7 @@ const MovieReviews = () => {
           </Link>
         </div>
       </div>
-      <div className="p-5">
+      <div className="p-5 ">
         <Tabs className="my-10 " value={"Reviews"}>
           <TabsHeader
             className="rounded-none border-b-2 border-[#9C27B0] text-[#9C27B0] text-lg font-semibold bg-transparent w-1/4"
@@ -56,9 +58,9 @@ const MovieReviews = () => {
                 "bg-transparent border-b-2 border-gray-900 shadow-none rounded-none",
             }}
           >
-            Reviews ({movieReviewsData?.length}){" "}
+            Reviews ({seriesReviewsData?.length}){" "}
           </TabsHeader>
-          {movieReviewsData?.map((ele, ind) => (
+          {seriesReviewsData?.map((ele, ind) => (
             <TabsBody
               key={ind}
               className=" bg-blue-gray-900  flex gap-2 md:gap-10 rounded-xl flex-col lg:flex-row  items-center lg:items-start my-5 "
@@ -78,10 +80,10 @@ const MovieReviews = () => {
               )}
 
               <div className="text-white text-lg space-x-1 my-2 md:my-5 text-center lg:text-start px-5">
-                <div className="mb-3 flex flex-col md:flex-row items-center justify-center lg:justify-normal">
+                <div className="mb-3 flex flex-col md:flex-row items-center justify-center lg:justify-normal ">
                   {" "}
                   <span className="font-bold text-xl ">A review by </span>{" "}
-                  <span className="text-light-blue-700 font-semibold text-lg mx-2">
+                  <span className="text-light-blue-700 font-semibold text-lg m-2">
                     {ele?.author}
                   </span>
                   {ele?.author_details?.rating && (
@@ -131,4 +133,4 @@ const MovieReviews = () => {
   );
 };
 
-export default MovieReviews;
+export default SeriesReviews;

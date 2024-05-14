@@ -2,12 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 
-const MovieDetailsBody = () => {
-  const { movieCreditsDetailsdata } = useSelector(
-    (state) => state.moviesCreditsDetails
+const SeriesDetailsBody = () => {
+  const { seriesCreditsDetailsdata } = useSelector(
+    (state) => state.seriesCreditsDetail
   );
-  const { movieid, moviename } = useParams();
-  const cast = movieCreditsDetailsdata?.cast;
+  const { seriesid, seriesname } = useParams();
+  const cast = seriesCreditsDetailsdata?.cast;
   return (
     <div className=" my-10 px-10">
       <div className="">
@@ -42,7 +42,7 @@ const MovieDetailsBody = () => {
                   </div>
                 ))}
               <div className="p-5 bg-gray-700 text-white mx-1  text-center content-center">
-                <Link to={`/movie/${movieid}/title/${moviename}/cast`}>
+                <Link to={`/tv/${seriesid}/name/${seriesname}/cast`}>
                   show more{" "}
                   <svg
                     stroke="currentColor"
@@ -65,7 +65,7 @@ const MovieDetailsBody = () => {
           </div>
         </div>
         <div className="text-light-blue-500 m-2 font-medium ">
-          <Link to={`/movie/${movieid}/title/${moviename}/cast`}>
+          <Link to={`/tv/${seriesid}/name/${seriesname}/cast`}>
             Full Cast & Crew
           </Link>
         </div>
@@ -74,4 +74,4 @@ const MovieDetailsBody = () => {
   );
 };
 
-export default MovieDetailsBody;
+export default SeriesDetailsBody;

@@ -20,11 +20,7 @@ const MovieDetails = () => {
   const { movieCreditsDetailsLoading } = useSelector(
     (state) => state.moviesCreditsDetails
   );
-  const { movieCreditsDetailsdata } = useSelector(
-    (state) => state.moviesCreditsDetails
-  );
 
-  console.log(movieCreditsDetailsdata);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCreditsDetails(movieid));

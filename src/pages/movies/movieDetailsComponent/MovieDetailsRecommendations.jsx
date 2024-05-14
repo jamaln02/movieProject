@@ -4,11 +4,11 @@ import { getMovieRecommendations } from "../../../redux-system/redux-slices/movi
 import { Link, useParams } from "react-router-dom";
 
 const MovieDetailsRecommendations = () => {
-  const { movieid } = useParams();
+  const { movieid, moviename } = useParams();
   const { movieRecommendationsData } = useSelector(
     (state) => state.moviesRecommendation
   );
-
+  console.log(movieRecommendationsData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMovieRecommendations(movieid));
@@ -21,29 +21,39 @@ const MovieDetailsRecommendations = () => {
       <div className="flex w-full ">
         <div className="flex flex-nowrap snap-x overflow-x-scroll">
           <div className="flex">
-            {movieRecommendationsData
-              ?.filter((ele, ind) => ele.poster_path != null && ind < 10)
-              ?.map((contant, ind) => (
-                <div
-                  key={ind}
-                  className="bg-blue-gray-300 text-white mx-1 scroll-m-1 w-[16em]  flex flex-col justify-between py-3 rounded-md px-2"
-                >
-                  <div>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${contant?.poster_path}`}
-                      alt="logo"
-                      className=""
-                    />
-                  </div>
-                  <div className="flex items-center justify-between mb-0 pb-0 ">
-                    <h1 className="text-lg font-medium">{contant.title}</h1>
-                    <p className="text-light-blue-700 font-semibold">
-                      {Math.round(contant.vote_average * 10)}%
-                    </p>
-                  </div>
+            {movieRecommendationsData?.map((contant, ind) => (
+              <div
+                key={ind}
+                className="bg-gray-700 text-white mx-1 scroll-m-1 w-[16em]  flex flex-col justify-between py-3 rounded-md px-2"
+              >
+                <div>
+                  {contant?.backdrop_path ? (
+                    <Link to={`/movie/${contant?.id}/title/${contant?.title}`}>
+                      <img
+                        src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${contant?.backdrop_path}`}
+                        alt="logo"
+                        className=""
+                      />
+                    </Link>
+                  ) : (
+                    <Link to={`/movie/${contant?.id}/title/${contant?.title}`}>
+                      <img
+                        src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${contant?.poster_path}`}
+                        alt="logo"
+                        className=""
+                      />
+                    </Link>
+                  )}
                 </div>
-              ))}
-            <div className="p-5 bg-blue-gray-300 text-white mx-1  text-center content-center">
+                <div className="flex items-center justify-between mb-0 pb-0 ">
+                  <h1 className="text-lg font-medium">{contant.title}</h1>
+                  <p className="text-light-blue-700 font-semibold">
+                    {Math.round(contant.vote_average * 10)}%
+                  </p>
+                </div>
+              </div>
+            ))}
+            {/* <div className="p-5 bg-gray-700 text-white mx-1  text-center content-center">
               <Link>
                 show more{" "}
                 <svg
@@ -62,7 +72,7 @@ const MovieDetailsRecommendations = () => {
                   ></path>
                 </svg>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

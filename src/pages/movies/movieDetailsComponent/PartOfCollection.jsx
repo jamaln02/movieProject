@@ -4,10 +4,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCollectionsDetails } from "../../../redux-system/redux-slices/moviesSlice/partOfCollectionSlice";
 import ReactLoading from "react-loading";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const PartOfCollection = () => {
-  const { movieid } = useParams();
+  const { movieid, moviename } = useParams();
   const { movieDetailsdata } = useSelector((state) => state.moviesDetails);
 
   const collectionsid = movieDetailsdata?.belongs_to_collection?.id;
@@ -18,7 +18,7 @@ const PartOfCollection = () => {
   const { collectionsDetailsLoading } = useSelector(
     (state) => state.collectionDetails
   );
-
+  console.log(collectionsDetailsData);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const PartOfCollection = () => {
           rgba(0, 0, 0, 0.5894747899159666) 95%,
           rgba(255, 255, 255, 0) 100%
         ),
-        url("https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces${collectionsDetailsData?.backdrop_path}}")`,
+        url("https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces${collectionsDetailsData?.poster_path}}")`,
           }}
           className="my-10 flex flex-col justify-evenly items-center mx-14 "
         >
@@ -66,12 +66,16 @@ const PartOfCollection = () => {
               {ele?.title}
             </div>
           ))}
-          <Button
-            variant="outlined"
-            className="rounded-full text-base font-bold text-light-blue-500 border-white hover:bg-white my-5 p-2"
-          >
-            VIEW THE COLLECTION
-          </Button>
+
+          <Link to={`/collection/${movieid}/title/${moviename}`}>
+            {" "}
+            <Button
+              variant="outlined"
+              className="rounded-full text-base font-bold text-light-blue-500 border-white hover:bg-white my-5 p-2"
+            >
+              VIEW THE COLLECTION
+            </Button>
+          </Link>
         </div>
       )}
     </div>

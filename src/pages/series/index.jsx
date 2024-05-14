@@ -19,6 +19,7 @@ import {
   decrement,
   increment,
 } from "../../redux-system/redux-slices/seriesSlice/seriesPageSlice";
+import ReactShowMoreText from "react-show-more-text";
 
 const Series = () => {
   const { seriesPageData } = useSelector((state) => state.seriesPage);
@@ -31,7 +32,7 @@ const Series = () => {
   }, [count]);
 
   return (
-    <div className="pt-24 mt-3 h-full">
+    <div className="pt-24 mt-3">
       {seriesPageLoading ? (
         <ReactLoading
           className="mx-auto h-screen"
@@ -54,11 +55,7 @@ const Series = () => {
             {seriesPageData.map((ele, ind) => (
               <div key={ind}>
                 <Card className="mt-6 w-72 h-full bg-gray-700 text-white">
-                  <CardHeader
-                    floated={false}
-                    color="transparent"
-                    className="h-80"
-                  >
+                  <CardHeader floated={false} color="transparent" className="">
                     <img
                       src={`https://media.themoviedb.org/t/p/w220_and_h330_face${ele.backdrop_path}`}
                       alt="card-image"
@@ -66,26 +63,40 @@ const Series = () => {
                     />
                   </CardHeader>
                   <CardBody>
-                    <Typography
-                      variant="h5"
-                      color="blue"
-                      className="mb-2 text-center"
-                    >
+                    <Typography variant="h5" color="white" className="mb-2 ">
+                      <span className="text-light-blue-500 font-normal">
+                        TAITLE :{" "}
+                      </span>
                       {ele.name}
                     </Typography>
+
+                    <div className="inline-block my-2">
+                      <h1 className=" ">OVERVIEW : </h1>
+                      <ReactShowMoreText
+                        lines={1}
+                        more="Show more"
+                        width={300}
+                        less="Show less"
+                        className="content-css"
+                        anchorClass="show-more-less-clickable text-light-blue-700 underline cursor-pointer	"
+                        expanded={false}
+                        truncatedEndingComponent={"  ... "}
+                      >
+                        {ele.overview}
+                      </ReactShowMoreText>
+                    </div>
                     <div className="flex justify-between items-center ">
-                      <>
-                        Rate:{" "}
+                      <div>
+                        RATE :{" "}
                         <span className="text-blue-700 font-semibold text-lg">
                           {ele.vote_average}
                         </span>
-                      </>
+                      </div>
                       <div>
                         <StarRatings
                           className="flex"
                           rating={ele.vote_average}
                           starRatedColor="yellow"
-                          // changeRating={changeRating}
                           numberOfStars={5}
                           starDimension="20px"
                           starSpacing="2px"
@@ -115,20 +126,30 @@ const Series = () => {
               variant="outlined"
               onClick={() => dispatch(decrement(count))}
               disabled={count === 1}
+              className="dark:border-white"
             >
-              <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" />
+              <ArrowLeftIcon
+                strokeWidth={2}
+                className="h-4 w-4 dark:text-white"
+              />
             </IconButton>
-            <Typography color="gray" className="font-normal">
-              Page <strong className="text-gray-900">{count}</strong> of{"  "}
-              <strong className="text-gray-900">500</strong>
+            <Typography color="gray" className="font-normal dark:text-white">
+              Page{" "}
+              <strong className="text-gray-900 dark:text-white">{count}</strong>{" "}
+              of{"  "}
+              <strong className="text-gray-900 dark:text-white">500</strong>
             </Typography>
             <IconButton
               size="sm"
               variant="outlined"
               onClick={() => dispatch(increment(count))}
               disabled={count === 500}
+              className="dark:border-white"
             >
-              <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
+              <ArrowRightIcon
+                strokeWidth={2}
+                className="h-4 w-4 dark:text-white"
+              />
             </IconButton>
           </div>
         </div>

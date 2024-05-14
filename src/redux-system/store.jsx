@@ -9,6 +9,10 @@ import { moviesRecommendation } from "./redux-slices/moviesSlice/movieRecommenda
 import { collectionDetails } from "./redux-slices/moviesSlice/partOfCollectionSlice";
 import { personDetail } from "./redux-slices/personSlice/personDetailsSlice";
 import { movieReview } from "./redux-slices/moviesSlice/movieReviewsSlice";
+import { seriesDetail } from "./redux-slices/seriesSlice/seriesDetailsSlice";
+import { seriesCreditsDetail } from "./redux-slices/seriesSlice/seriesDetailsCreditsSlice";
+import { seriesSeasons } from "./redux-slices/seriesSlice/seriesSeasonSlice";
+import { seriesReview } from "./redux-slices/seriesSlice/seriesReviewsSlice";
 const store = configureStore({
   reducer: {
     movies,
@@ -21,6 +25,10 @@ const store = configureStore({
     collectionDetails,
     personDetail,
     movieReview,
+    seriesDetail,
+    seriesCreditsDetail,
+    seriesSeasons,
+    seriesReview,
   },
 });
 
