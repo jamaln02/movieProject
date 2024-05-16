@@ -40,7 +40,6 @@ const seriesSeason = createSlice({
     builder.addCase(getSeriesSeason.fulfilled, (state, action) => {
       state.seriesSeasonLoading = false;
       state.seriesSeasonData = action.payload;
-      console.log(action);
     });
     builder.addCase(getSeriesSeason.rejected, (state, action) => {
       state.seriesSeasonLoading = false;

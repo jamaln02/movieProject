@@ -42,7 +42,6 @@ const SeriesDetailsHeader = () => {
       )
     );
   };
-  console.log(seriesDetailsdata);
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(!open);
@@ -91,7 +90,7 @@ const SeriesDetailsHeader = () => {
             </div>
             <div className="md:text-start w-3/5 md:mt-3 md:p-1 text-white text-center">
               <div className="  md:text-3xl text-lg">
-                {seriesDetailsdata?.title}
+                {seriesDetailsdata?.name}
               </div>
               <div className="">
                 {seriesDetailsdata?.first_air_date} (

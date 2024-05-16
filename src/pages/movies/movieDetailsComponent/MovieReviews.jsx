@@ -13,7 +13,7 @@ const MovieReviews = () => {
   const { movieDetailsdata } = useSelector((state) => state.moviesDetails);
   const { movieReviewsData } = useSelector((state) => state.movieReview);
   const navigate = useNavigate();
-  console.log(movieReviewsData);
+
   const dispatch = useDispatch();
 
   useEffect(() => {

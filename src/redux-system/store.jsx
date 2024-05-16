@@ -13,6 +13,9 @@ import { seriesDetail } from "./redux-slices/seriesSlice/seriesDetailsSlice";
 import { seriesCreditsDetail } from "./redux-slices/seriesSlice/seriesDetailsCreditsSlice";
 import { seriesSeasons } from "./redux-slices/seriesSlice/seriesSeasonSlice";
 import { seriesReview } from "./redux-slices/seriesSlice/seriesReviewsSlice";
+import { moviesMedia } from "./redux-slices/moviesSlice/movieMediaSlice";
+import { seriessMedia } from "./redux-slices/seriesSlice/seriesMediaSlice";
+import { seriesRecommendation } from "./redux-slices/seriesSlice/seriesRecommendationsSlice";
 const store = configureStore({
   reducer: {
     movies,
@@ -29,6 +32,9 @@ const store = configureStore({
     seriesCreditsDetail,
     seriesSeasons,
     seriesReview,
+    moviesMedia,
+    seriessMedia,
+    seriesRecommendation,
   },
 });
 

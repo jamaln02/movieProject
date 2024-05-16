@@ -8,12 +8,10 @@ import { getSeriesSeason } from "../../../redux-system/redux-slices/seriesSlice/
 const LastSeason = () => {
   const { seriesid, seriesname } = useParams();
   const { seriesDetailsdata } = useSelector((state) => state.seriesDetail);
-  console.log(seriesDetailsdata);
-  console.log(seriesDetailsdata?.seasons?.length - 1);
 
   const seasonnum = seriesDetailsdata?.seasons?.length - 1;
   const { seriesSeasonData } = useSelector((state) => state.seriesSeasons);
-  console.log(seriesSeasonData);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSeriesSeason({ seriesid, seasonnum }));

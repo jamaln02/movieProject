@@ -5,7 +5,6 @@ export const getSeriesPage = createAsyncThunk(
   "getSeriesPage",
   async (i = 1, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
-    console.log(i);
 
     try {
       const info = await axios({
@@ -56,7 +55,6 @@ const seriesPageSlice = createSlice({
       state.seriesPageLoading = false;
       state.seriesPageData = action.payload.results;
       action.meta.arg = state.count;
-      console.log(action);
     });
     builder.addCase(getSeriesPage.rejected, (state, action) => {
       state.seriesPageLoading = false;

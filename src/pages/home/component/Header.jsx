@@ -44,7 +44,7 @@ const HomeHeader = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/3">
+        <div className="w-2/3 md:w-1/3">
           <h1 className="md:text-2xl text-lg font-bold mb-5 text-center">
             Sort order
           </h1>

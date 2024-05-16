@@ -48,10 +48,10 @@ const MovieDetailsBody = () => {
                     stroke="currentColor"
                     fill="currentColor"
                     strokeWidth="0"
-                    viewBox="0 0 16 16"
-                    className="text-3xl"
+                    viewBox="0 0 1 16"
+                    className="text-3xl "
                     height="1em"
-                    width="1em"
+                    width="1.5em"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path

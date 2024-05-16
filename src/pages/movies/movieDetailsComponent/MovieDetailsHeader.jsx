@@ -86,7 +86,7 @@ const MovieDetailsHeader = () => {
                 className="  md:w-3/4 "
               />
             </div>
-            <div className="md:text-start w-3/5 md:mt-3 md:p-1 text-white text-center">
+            <div className="md:text-start w-4/5 md:w-3/5 md:mt-3 md:p-1 text-white text-center">
               <div className="  md:text-3xl text-lg">
                 {movieDetailsdata?.title}
               </div>
@@ -115,14 +115,14 @@ const MovieDetailsHeader = () => {
               </div>
               <div className="">
                 <div className=" ">
-                  <div className="flex  md:justify-evenly md:text-lg text-sm text-center md:mt-5 mt-2">
+                  <div className="flex  justify-evenly md:text-lg text-sm text-center md:mt-5 mt-2">
                     {" "}
                     {movieCreditsDetailsdata?.cast
                       .filter((ele, ind) => ele.cast_id < 3 || ind < 3)
                       .map((cont, ind) => (
-                        <div key={ind} className="flex flex-col">
+                        <div key={ind} className="flex flex-col gap-2">
                           <h1>{cont.name} </h1>
-                          <h1 className="text-yellow-500 ">Acting</h1>
+                          <h1 className="text-yellow-500">Acting</h1>
                         </div>
                       ))}
                   </div>
@@ -133,7 +133,7 @@ const MovieDetailsHeader = () => {
                         (ele, ind) => ele.department == "Production" && ind < 4
                       )
                       .map((cont, ind) => (
-                        <div key={ind} className="flex flex-col">
+                        <div key={ind} className="flex flex-col gap-2">
                           <h1>{cont.name} </h1>
                           <h1 className="text-yellow-500 ">Production</h1>
                         </div>
@@ -142,7 +142,7 @@ const MovieDetailsHeader = () => {
                 </div>
               </div>
 
-              <div className="flex justify-evenly items-center md:pt-5 pt-2 flex-wrap">
+              <div className="flex justify-evenly items-center md:pt-5 pt-2 flex-wrap mt-2">
                 <div className="md:text-2xl text-lg text-green-600 ">
                   <AiFillFileAdd />
                 </div>

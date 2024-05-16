@@ -7,6 +7,9 @@ import SeriesDetailsHeader from "./seriesDetailsComponent/SeriesDetailsHeader";
 import SeriesDetailsBody from "./seriesDetailsComponent/SeriesDetailsBody";
 import LastSeason from "./seriesDetailsComponent/LastSeason";
 import SocialSeriesDetails from "./seriesDetailsComponent/SocialSeriesDetails";
+import MediaSeriesDetails from "./seriesDetailsComponent/MediaSeriesDetails";
+import SeriesDetailsRecommendations from "./seriesDetailsComponent/SeriesDetailsRecommendations";
+import SeriesDetailsSidBar from "./seriesDetailsComponent/SeriesDetailsSidBar";
 
 const SeriesDetails = () => {
   const { seriesid } = useParams();
@@ -41,12 +44,12 @@ const SeriesDetails = () => {
               <SeriesDetailsBody />
               <LastSeason />
               <SocialSeriesDetails />
-              {/* <MediaMovieDetails />
-            <PartOfCollection />
-            <MovieDetailsRecommendations /> */}
+              <MediaSeriesDetails />
+
+              <SeriesDetailsRecommendations />
             </div>
             <div className=" col-start-7 col-end-13">
-              {/* <MovieDetailsSidBar /> */}
+              <SeriesDetailsSidBar />
             </div>
           </div>
         </div>

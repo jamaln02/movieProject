@@ -10,7 +10,7 @@ const SocialSeriesDetails = () => {
   const { seriesid, seriesname } = useParams();
 
   const { seriesReviewsData } = useSelector((state) => state.seriesReview);
-  console.log(seriesReviewsData);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSeriesReviews(seriesid));

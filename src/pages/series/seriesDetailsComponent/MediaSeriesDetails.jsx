@@ -9,29 +9,26 @@ import {
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getBackDropsAndPosters,
-  getMovieVideos,
-} from "../../../redux-system/redux-slices/moviesSlice/movieMediaSlice";
+import { getBackDropsAndPosters } from "../../../redux-system/redux-slices/seriesSlice/seriesMediaSlice";
+import { getSeriesVideos } from "../../../redux-system/redux-slices/seriesSlice/seriesMediaSlice";
 
-const MediaMovieDetails = () => {
-  const { movieid, moviename } = useParams();
+const MediaSeriesDetails = () => {
+  const { seriesid, seriesname } = useParams();
   const [activeTab, setActiveTab] = useState("videos");
 
-  const { movieVideosData } = useSelector((state) => state.moviesMedia);
-
-  const { backdropsAndPosterData } = useSelector((state) => state.moviesMedia);
+  const { videosData } = useSelector((state) => state.seriessMedia);
+  console.log(videosData);
+  const { backdropsAndPosterData } = useSelector((state) => state.seriessMedia);
 
   const backDrops = backdropsAndPosterData?.backdrops;
   const posters = backdropsAndPosterData?.posters;
-  const videos = movieVideosData?.results;
+  const videos = videosData?.results;
   const dispatch = useDispatch();
-  console.log(movieVideosData);
 
   useEffect(() => {
-    dispatch(getMovieVideos(movieid));
-    dispatch(getBackDropsAndPosters(movieid));
-  }, [movieid]);
+    dispatch(getSeriesVideos(seriesid));
+    dispatch(getBackDropsAndPosters(seriesid));
+  }, [seriesid]);
 
   const data = [
     {
@@ -123,7 +120,7 @@ const MediaMovieDetails = () => {
                       ))}
                     <div className=" bg-gray-700 text-white mx-1  text-center content-center p-16">
                       <Link
-                        to={`/movie/${movieid}/title/${moviename}/images/backdrops`}
+                        to={`/series/${seriesid}/name/${seriesname}/images/backdrops`}
                       >
                         show more{" "}
                         <svg
@@ -165,7 +162,7 @@ const MediaMovieDetails = () => {
                         ))}
                       <div className=" bg-gray-700 text-white mx-1  text-center content-center p-16">
                         <Link
-                          to={`/movie/${movieid}/title/${moviename}/images/posters`}
+                          to={`/series/${seriesid}/name/${seriesname}/images/posters`}
                         >
                           show more{" "}
                           <svg
@@ -198,4 +195,4 @@ const MediaMovieDetails = () => {
   );
 };
 
-export default MediaMovieDetails;
+export default MediaSeriesDetails;
