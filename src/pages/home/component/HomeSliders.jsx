@@ -53,7 +53,7 @@ const HomeSliders = ({ data, name }) => {
                 to={
                   content.title
                     ? `/movie/${content.id}/title/${content.title}`
-                    : `/series/${content.id}/title/${content.name}`
+                    : `/tv/${content.id}/name/${content.name}`
                 }
               >
                 {content.backdrop_path ? (
