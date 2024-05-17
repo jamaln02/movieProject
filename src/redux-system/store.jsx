@@ -17,6 +17,7 @@ import { moviesMedia } from "./redux-slices/moviesSlice/movieMediaSlice";
 import { seriessMedia } from "./redux-slices/seriesSlice/seriesMediaSlice";
 import { seriesRecommendation } from "./redux-slices/seriesSlice/seriesRecommendationsSlice";
 import { episodeDetail } from "./redux-slices/seriesSlice/episodeDetailsSlice";
+import { searchResult } from "./redux-slices/searchSlice";
 const store = configureStore({
   reducer: {
     movies,
@@ -37,7 +38,12 @@ const store = configureStore({
     seriessMedia,
     seriesRecommendation,
     episodeDetail,
+    searchResult,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export default store;

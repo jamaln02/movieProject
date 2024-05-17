@@ -8,7 +8,6 @@ import { getSeriesDetails } from "../../redux-system/redux-slices/seriesSlice/se
 
 const AllSeriesPersonsDetails = () => {
   const { seriesDetailsdata } = useSelector((state) => state.seriesDetail);
-  console.log(seriesDetailsdata);
 
   const { seriesid } = useParams();
 
@@ -17,7 +16,6 @@ const AllSeriesPersonsDetails = () => {
   );
   const cast = seriesCreditsDetailsdata?.cast;
   const crew = seriesCreditsDetailsdata?.crew;
-  console.log(seriesCreditsDetailsdata);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

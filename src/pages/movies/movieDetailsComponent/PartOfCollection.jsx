@@ -18,7 +18,6 @@ const PartOfCollection = () => {
   const { collectionsDetailsLoading } = useSelector(
     (state) => state.collectionDetails
   );
-  console.log(collectionsDetailsData);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,7 +29,7 @@ const PartOfCollection = () => {
   return (
     <div>
       {movieDetailsdata?.belongs_to_collection == null ||
-      collectionsDetailsLoading ? (
+      collectionsDetailsLoading == true ? (
         <ReactLoading
           className="mx-auto h-screen"
           type={"dots"}

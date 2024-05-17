@@ -12,7 +12,7 @@ const EpisodeDetails = () => {
 
   const { episodeDetailsData } = useSelector((state) => state.episodeDetail);
   const { castAndCrewData } = useSelector((state) => state.episodeDetail);
-  console.log(castAndCrewData);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getEpisodeDetails({ seriesid, seasonid, episodeid }));

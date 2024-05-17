@@ -26,7 +26,6 @@ const MediaMovieDetails = () => {
   const posters = backdropsAndPosterData?.posters;
   const videos = movieVideosData?.results;
   const dispatch = useDispatch();
-  console.log(movieVideosData);
 
   useEffect(() => {
     dispatch(getMovieVideos(movieid));

@@ -11,7 +11,6 @@ import StarRatings from "react-star-ratings";
 import { Link } from "react-router-dom";
 
 const TopContent = ({ data, name }) => {
-  console.log(data);
   return (
     <div className="container mx-auto my-10 ">
       <div className="uppercase text-2xl md:mx-16 text-light-blue-500 font-semibold my-4 md:text-start text-center">

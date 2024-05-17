@@ -22,7 +22,6 @@ const Movies = () => {
   const { moviesPageData } = useSelector((state) => state.moviesPage);
   const { moviesPageLoading } = useSelector((state) => state.moviesPage);
   const { count } = useSelector((state) => state.moviesPage);
-  console.log(count);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMoviesPage(count));

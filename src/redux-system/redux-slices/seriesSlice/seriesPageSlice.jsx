@@ -37,7 +37,6 @@ const seriesPageSlice = createSlice({
   reducers: {
     increment: (state, action) => {
       if (state.count < 500) {
-        console.log(action);
         state.count = action.payload + 1;
       }
     },

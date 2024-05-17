@@ -15,7 +15,7 @@ const SeriesDetailsSidBar = () => {
   const [keyWords, setKeyWords] = useState(null);
   const [seriesSocial, setSeriesSocial] = useState(null);
   const dispatch = useDispatch();
-  console.log(keyWords);
+
   const getKeyWords = () => {
     axios({
       method: "GET",

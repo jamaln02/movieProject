@@ -17,7 +17,6 @@ const MovieDetailsHeader = () => {
   const { movieCreditsDetailsdata } = useSelector(
     (state) => state.moviesCreditsDetails
   );
-  console.log(movieCreditsDetailsdata);
   const [videosKey, setVideoKey] = useState("");
 
   const getVideoKey = () => {

@@ -19,6 +19,9 @@ import SeriesSeason from "./pages/series/seriesDetailsComponent/SeriesSeason";
 import EpisodeDetails from "./pages/series/seriesDetailsComponent/EpisodeDetails";
 import AllSeriesSeasons from "./pages/series/seriesDetailsComponent/AllSeriesSeasons";
 
+import MovieAndSeriesSearch from "./pages/search/MovieAndSeriesSearch";
+import NotFound from "./pages/NotFound";
+
 function App() {
   return (
     <div className="bg-blue-gray-50 dark:bg-gray-900 dark:text-white">
@@ -45,13 +48,13 @@ function App() {
           element={<AllCollections />}
         />
         <Route
-          path="movie/:movieid/title/:moviename/images/backdrops"
+          path="/movie/:movieid/title/:moviename/images/backdrops"
           element={<BackdropsSocial />}
         />
 
         <Route path="/series" element={<Series />} />
         <Route
-          path="/series/:seriesid/name/:seriesname"
+          path="/tv/:seriesid/name/:seriesname"
           element={<SeriesDetails />}
         />
         <Route
@@ -79,6 +82,11 @@ function App() {
           path="/tv/:seriesid/name/:seriesname/reviews"
           element={<SeriesReviews />}
         />
+        <Route
+          path="/search/for/:searchvalue"
+          element={<MovieAndSeriesSearch />}
+        />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
       <div>
         <Footer />

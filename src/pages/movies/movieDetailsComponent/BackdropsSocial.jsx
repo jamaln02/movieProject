@@ -11,7 +11,7 @@ const BackdropsSocial = () => {
   const { movieDetailsdata } = useSelector((state) => state.moviesDetails);
 
   const backdropsAndPosterData = useSelector((state) => state.moviesMedia);
-  console.log(backdropsAndPosterData);
+
   const navigate = useNavigate();
 
   const dispatch = useDispatch();

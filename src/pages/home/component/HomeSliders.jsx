@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 const HomeSliders = ({ data, name }) => {
-  console.log(name);
   const settings = {
     dots: false,
     infinite: true,

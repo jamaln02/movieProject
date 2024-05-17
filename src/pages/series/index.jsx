@@ -25,7 +25,7 @@ const Series = () => {
   const { seriesPageData } = useSelector((state) => state.seriesPage);
   const { seriesPageLoading } = useSelector((state) => state.seriesPage);
   const { count } = useSelector((state) => state.seriesPage);
-  console.log(count);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSeriesPage(count));
@@ -106,7 +106,7 @@ const Series = () => {
                     </div>
                   </CardBody>
                   <CardFooter className="pt-0 text-center">
-                    <Link to={`/series/${ele.id}/name/${ele.name}`}>
+                    <Link to={`/tv/${ele.id}/name/${ele.name}`}>
                       <Button
                         color="light-blue"
                         variant="outlined"

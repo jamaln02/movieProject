@@ -68,7 +68,6 @@ const seriesMedia = createSlice({
     builder.addCase(getBackDropsAndPosters.fulfilled, (state, action) => {
       state.backdropsAndPosterLoading = false;
       state.backdropsAndPosterData = action.payload;
-      console.log(action.payload);
     });
     builder.addCase(getBackDropsAndPosters.rejected, (state, action) => {
       state.backdropsAndPosterLoading = false;
@@ -80,7 +79,6 @@ const seriesMedia = createSlice({
     builder.addCase(getSeriesVideos.fulfilled, (state, action) => {
       state.videosLoading = false;
       state.videosData = action.payload;
-      console.log(action.payload);
     });
     builder.addCase(getSeriesVideos.rejected, (state, action) => {
       state.videosLoading = false;

@@ -5,7 +5,6 @@ export const getMoviesPage = createAsyncThunk(
   "getMoviesPage",
   async (i = 1, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
-    console.log(i);
 
     try {
       const info = await axios({

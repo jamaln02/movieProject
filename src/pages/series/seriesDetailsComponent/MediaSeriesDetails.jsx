@@ -17,7 +17,7 @@ const MediaSeriesDetails = () => {
   const [activeTab, setActiveTab] = useState("videos");
 
   const { videosData } = useSelector((state) => state.seriessMedia);
-  console.log(videosData);
+
   const { backdropsAndPosterData } = useSelector((state) => state.seriessMedia);
 
   const backDrops = backdropsAndPosterData?.backdrops;

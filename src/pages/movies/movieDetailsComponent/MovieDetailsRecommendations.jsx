@@ -8,7 +8,6 @@ const MovieDetailsRecommendations = () => {
   const { movieRecommendationsData } = useSelector(
     (state) => state.moviesRecommendation
   );
-  console.log(movieRecommendationsData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMovieRecommendations(movieid));

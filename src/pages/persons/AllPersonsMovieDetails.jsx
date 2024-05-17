@@ -16,10 +16,9 @@ const AllPersonsDetails = () => {
   );
   const cast = movieCreditsDetailsdata?.cast;
   const crew = movieCreditsDetailsdata?.crew;
-  console.log(movieCreditsDetailsdata);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(crew);
   const crewCategories = crew.map((ele) => {
     return ele.job;
   });

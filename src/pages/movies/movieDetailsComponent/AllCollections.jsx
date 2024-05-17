@@ -14,10 +14,9 @@ const AllCollections = () => {
     (state) => state.moviesCreditsDetails
   );
   const { movieDetailsdata } = useSelector((state) => state.moviesDetails);
-  console.log(movieDetailsdata);
+
   const collectionsid = movieDetailsdata?.belongs_to_collection?.id;
-  console.log(collectionsDetailsData);
-  console.log(movieCreditsDetailsdata);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCreditsDetails(movieid));

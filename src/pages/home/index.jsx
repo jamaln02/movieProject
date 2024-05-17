@@ -17,7 +17,6 @@ const Home = () => {
     dispatch(getAllMovies());
     dispatch(getAllSeries());
   }, []);
-  console.log(topMovies);
 
   return (
     <div className="pt-20  dark:text-white">
