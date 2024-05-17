@@ -25,8 +25,8 @@ const MovieAndSeriesSearch = () => {
       </div>
 
       <div className="mt-10 grid grid-cols-13 gap-2 text-center">
-        <div className="col-span-4 col-end-4">
-          <div className="text-2xl uppercase ">movies</div>
+        <div className="md:col-span-4 md:col-end-4 mt-2">
+          <div className="text-2xl uppercase mt-2">movies</div>
           <div className="flex  flex-wrap justify-evenly gap-5 ">
             {movieSearchResults?.map((ele, ind) => (
               <div key={ind}>
@@ -97,8 +97,8 @@ const MovieAndSeriesSearch = () => {
           </div>
         </div>
 
-        <div className="col-span-4 col-start-7">
-          <div className="text-2xl uppercase ">series</div>
+        <div className="md:col-span-4 md:col-start-7 mt-2">
+          <div className="text-2xl uppercase mt-2">series</div>
           <div className="flex  flex-wrap justify-evenly gap-5 ">
             {seriesSearchResults?.map((ele, ind) => (
               <div key={ind}>
