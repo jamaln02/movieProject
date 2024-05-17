@@ -21,20 +21,9 @@ const AllSeriesPersonsDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const crewCategories = [
-    "Directing",
-    "Writing",
-    "Production",
-    "Editing",
-    "Sound",
-    "Art",
-    "Visual Effects",
-    "Camera",
-    "Costume & Make-Up",
-    "Crew",
-    "Acting",
-    "Lighting",
-  ];
+  const crewCategories = crew.map((ele) => {
+    return ele.job;
+  });
 
   useEffect(() => {
     dispatch(getCreditsDetails(seriesid));

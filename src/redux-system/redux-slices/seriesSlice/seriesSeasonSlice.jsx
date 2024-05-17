@@ -3,13 +3,13 @@ import axios from "axios";
 
 export const getSeriesSeason = createAsyncThunk(
   "getSeriesSeason",
-  async ({ seriesid, seasonnum }, thunkAPI) => {
+  async ({ seriesid, seasonid }, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
 
     try {
       const details = await axios({
         method: "GET",
-        url: `https://api.themoviedb.org/3/tv/${seriesid}/season/${seasonnum}`,
+        url: `https://api.themoviedb.org/3/tv/${seriesid}/season/${seasonid}`,
         params: { language: "en-US" },
         headers: {
           accept: "application/json",

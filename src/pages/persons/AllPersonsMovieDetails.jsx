@@ -19,21 +19,10 @@ const AllPersonsDetails = () => {
   console.log(movieCreditsDetailsdata);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const crewCategories = [
-    "Directing",
-    "Writing",
-    "Production",
-    "Editing",
-    "Sound",
-    "Art",
-    "Visual Effects",
-    "Camera",
-    "Costume & Make-Up",
-    "Crew",
-    "Acting",
-    "Lighting",
-  ];
+  console.log(crew);
+  const crewCategories = crew.map((ele) => {
+    return ele.job;
+  });
 
   useEffect(() => {
     dispatch(getCreditsDetails(movieid));
@@ -126,7 +115,7 @@ const AllPersonsDetails = () => {
 
               <div className="flex flex-wrap justify-evenly items-center gap-4">
                 {crew
-                  ?.filter((ele) => ele?.known_for_department === category)
+                  ?.filter((ele) => ele?.job === category)
                   ?.map((contatnt) => (
                     <div
                       key={contatnt.credit_id}

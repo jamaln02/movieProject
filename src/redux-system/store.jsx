@@ -16,6 +16,7 @@ import { seriesReview } from "./redux-slices/seriesSlice/seriesReviewsSlice";
 import { moviesMedia } from "./redux-slices/moviesSlice/movieMediaSlice";
 import { seriessMedia } from "./redux-slices/seriesSlice/seriesMediaSlice";
 import { seriesRecommendation } from "./redux-slices/seriesSlice/seriesRecommendationsSlice";
+import { episodeDetail } from "./redux-slices/seriesSlice/episodeDetailsSlice";
 const store = configureStore({
   reducer: {
     movies,
@@ -35,6 +36,7 @@ const store = configureStore({
     moviesMedia,
     seriessMedia,
     seriesRecommendation,
+    episodeDetail,
   },
 });
 

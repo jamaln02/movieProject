@@ -9,13 +9,13 @@ const LastSeason = () => {
   const { seriesid, seriesname } = useParams();
   const { seriesDetailsdata } = useSelector((state) => state.seriesDetail);
 
-  const seasonnum = seriesDetailsdata?.seasons?.length - 1;
+  const seasonid = seriesDetailsdata?.seasons?.length - 1;
   const { seriesSeasonData } = useSelector((state) => state.seriesSeasons);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getSeriesSeason({ seriesid, seasonnum }));
-  }, [seriesid, seasonnum]);
+    dispatch(getSeriesSeason({ seriesid, seasonid }));
+  }, [seriesid, seasonid]);
   return (
     <div className="container mx-auto flex flex-col px-10 my-5">
       <h1 className="py-5 text-2xl font-semibold text-light-blue-500">
@@ -34,7 +34,7 @@ const LastSeason = () => {
             <div className="flex flex-col  lg:flex-row gap-1 items-center">
               <span className="font-bold m-2 text-xl">
                 <Link
-                  to={`/tv/${seriesid}/name/${seriesname}/season/${seasonnum}`}
+                  to={`/tv/${seriesid}/name/${seriesname}/season/${seasonid}`}
                 >
                   {seriesSeasonData?.name}
                 </Link>

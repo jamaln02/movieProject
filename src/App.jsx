@@ -15,6 +15,9 @@ import Footer from "./component/Footer";
 import SeriesReviews from "./pages/series/seriesDetailsComponent/SeriesReviews";
 import BackdropsSocial from "./pages/movies/movieDetailsComponent/BackdropsSocial";
 import AllSeriesPersonsDetails from "./pages/persons/AllPersonsSeriesDetails";
+import SeriesSeason from "./pages/series/seriesDetailsComponent/SeriesSeason";
+import EpisodeDetails from "./pages/series/seriesDetailsComponent/EpisodeDetails";
+import AllSeriesSeasons from "./pages/series/seriesDetailsComponent/AllSeriesSeasons";
 
 function App() {
   return (
@@ -59,8 +62,19 @@ function App() {
           path="/person/:personid/name/:personname"
           element={<PersonDetails />}
         />
-        <Route path="/tv/seriesid/name/:seriesname/season/:seasonid" />
-        <Route path="/tv/:seriesid/name/:seriesname/seasons" />
+        <Route
+          path="/tv/:seriesid/name/:seriesname/seasons"
+          element={<AllSeriesSeasons />}
+        />
+
+        <Route
+          path="/tv/:seriesid/name/:seriesname/season/:seasonid"
+          element={<SeriesSeason />}
+        />
+        <Route
+          path="/tv/:seriesid/season/:seasonid/episode/:episodeid"
+          element={<EpisodeDetails />}
+        />
         <Route
           path="/tv/:seriesid/name/:seriesname/reviews"
           element={<SeriesReviews />}
