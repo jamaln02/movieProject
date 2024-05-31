@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 import withMT from "@material-tailwind/react/utils/withMT";
+
 export default withMT({
   content: [
     "./index.html",
     "./src/**/*.{js,jsx}",
-    "../node_modules/@material-tailwind/react/components/**/*.{js,jsx}",
-    "../node_modules/@material-tailwind/react/theme/components/**/*.{js,jsx}",
+    "./node_modules/@material-tailwind/react/components/**/*.{js,jsx}",
+    "./node_modules/@material-tailwind/react/theme/components/**/*.{js,jsx}",
   ],
   theme: {
     extend: {},
